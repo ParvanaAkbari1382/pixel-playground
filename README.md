@@ -1,73 +1,195 @@
-# Welcome to your Lovable project
+# Git & GitHub Training Repository
 
-## Project info
+This repository is built to teach students practical Git and GitHub workflows:
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+- Creating and cloning repositories
+- Branching and committing cleanly
+- Pushing code and opening Pull Requests
+- Reviewing, merging, and resolving conflicts
 
-## How can I edit this code?
+## Quick Start
 
-There are several ways of editing your application.
+```bash
+# 1) Clone
+git clone <YOUR_REPO_URL>
 
-**Use Lovable**
+# 2) Enter project
+cd <YOUR_PROJECT_FOLDER>
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+# 3) Check branch
+git branch
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# 4) Start working
+git switch -c feature/<your-task-name>
 ```
 
-**Edit a file directly in GitHub**
+## Student Setup (Must Update)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Replace all placeholders below before your first submission.
 
-**Use GitHub Codespaces**
+```txt
+<YOUR_NAME>
+<YOUR_EMAIL>
+<YOUR_GITHUB_USERNAME>
+<YOUR_REPO_URL>
+<YOUR_PROJECT_FOLDER>
+<your-task-name>
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Run once on your machine:
 
-## What technologies are used for this project?
+```bash
+git config --global user.name "<YOUR_NAME>"
+git config --global user.email "<YOUR_EMAIL>"
+```
 
-This project is built with:
+## Student Profile (Must Update)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Fill this section when you fork/clone the repo.
 
-## How can I deploy this project?
+- Name: `UPDATE_ME`
+- Batch / Section: `UPDATE_ME`
+- GitHub Username: `UPDATE_ME`
+- Repository URL: `UPDATE_ME`
+- Preferred Branch Prefix: `feature/UPDATE_ME`
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Core Git Commands
 
-## Can I connect a custom domain to my Lovable project?
+| Task | Command |
+| --- | --- |
+| Check status | `git status` |
+| See commit history | `git log --oneline --graph --decorate -n 15` |
+| Create new branch | `git switch -c feature/<name>` |
+| Switch branch | `git switch <branch-name>` |
+| Stage file(s) | `git add <file>` |
+| Stage all changes | `git add .` |
+| Commit | `git commit -m "type: short message"` |
+| Pull latest changes | `git pull origin main` |
+| Push branch | `git push -u origin feature/<name>` |
+| Compare changes | `git diff` |
+| Remove staged file | `git restore --staged <file>` |
+| Discard local file changes | `git restore <file>` |
 
-Yes, you can!
+## Daily Workflow (Recommended)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+# 1) Make sure main is current
+git switch main
+git pull origin main
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# 2) Create a branch for your task
+git switch -c feature/<your-task-name>
+
+# 3) Work, then verify
+git status
+
+# 4) Stage + commit
+git add .
+git commit -m "feat: add <short-description>"
+
+# 5) Push
+git push -u origin feature/<your-task-name>
+```
+
+## Commit Message Guide
+
+Use short, meaningful commits:
+
+- `feat: add login form validation`
+- `fix: handle null API response in dashboard`
+- `docs: update README with branch workflow`
+- `refactor: split user service into modules`
+
+## GitHub Workflow (Branch -> PR -> Merge)
+
+1. Push your feature branch.
+2. Open a Pull Request against `main`.
+3. Write a clear PR title and description:
+   - What changed
+   - Why it changed
+   - How it was tested
+4. Request review.
+5. Resolve feedback.
+6. Merge after approval.
+
+## Pull Request Template (Copy/Paste)
+
+```md
+## Summary
+- 
+
+## Changes
+- 
+
+## Testing
+- [ ] Ran locally
+- [ ] No console errors
+- [ ] Screenshots attached (if UI)
+
+## Notes
+- 
+```
+
+## Conflict Resolution Basics
+
+```bash
+# While on your feature branch
+git fetch origin
+git pull origin main
+```
+
+If conflicts appear:
+
+1. Open conflicted files.
+2. Keep the correct code.
+3. Remove conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
+4. Stage and commit:
+
+```bash
+git add .
+git commit -m "fix: resolve merge conflicts with main"
+git push
+```
+
+## Undo Commands (Use Carefully)
+
+```bash
+# Undo last commit but keep changes
+git reset --soft HEAD~1
+
+# Unstage a file
+git restore --staged <file>
+
+# Revert a commit safely (shared branches)
+git revert <commit-hash>
+```
+
+## GitHub Skills Students Should Practice
+
+- Forking and cloning repositories
+- Creating branches for each task
+- Opening good Pull Requests
+- Reviewing peers' Pull Requests
+- Keeping `main` clean and deployable
+- Writing useful commit messages
+
+## Practice Tasks for Students
+
+1. Create a new branch and add your name under `Student Profile`.
+2. Make one docs commit and one code commit.
+3. Push both commits and open a PR.
+4. Review a classmate PR and leave one useful comment.
+5. Merge PR after feedback is addressed.
+
+## Instructor Notes (Optional)
+
+You can use this repository for live demos of:
+
+- `git init`, `git add`, `git commit`
+- Branching strategy
+- PR review process
+- Merge conflict resolution
+
+---
+
+If you are a student, start by completing all `UPDATE_ME` sections first.
